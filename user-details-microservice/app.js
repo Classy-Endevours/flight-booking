@@ -22,7 +22,7 @@ const swaggerOptions = {
       title: "User Details API",
       description: "It contains information of the traveller ",
       contact: {
-        name: "Pranav Karmarkar",
+        name: "test",
       },
       servers: ["http://localhost:" + process.env.PORT],
     },

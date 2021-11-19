@@ -1,6 +1,6 @@
 const JWT = require("jsonwebtoken");
 let User = require("../models/user");
-
+// set token
 signToken = (user) => {
   return JWT.sign(
     {
@@ -14,10 +14,13 @@ signToken = (user) => {
     }
   );
 };
+
+// exporting modules
+
 module.exports = {
   signUp: async (req, res, next) => {
     const { email, password } = req.body;
-
+    // save new user
     let foundUser = await User.findOne({ "local.email": email });
     if (foundUser) {
       return res.status(403).json({ error: "Email is already in use" });
@@ -54,6 +57,7 @@ module.exports = {
   },
 
   signIn: async (req, res, next) => {
+    // set sign in
     console.log(req.user);
     const token = signToken(req.user);
     const newUser = req.user;
