@@ -54,8 +54,9 @@ function Flights() {
 
   const [iserror, setIserror] = useState(false);
   const [errorMessages, setErrorMessages] = useState([]);
-
-  useEffect(() => {
+  
+  const apiCall = () => {
+    
     api
       .get("/")
       .then((res) => {
@@ -65,6 +66,10 @@ function Flights() {
       .catch((error) => {
         console.log("Error");
       });
+  }
+
+  useEffect(() => {
+    apiCall();
   }, []);
 
   const handleRowUpdate = (newData, oldData, resolve) => {
@@ -97,6 +102,7 @@ function Flights() {
           const index = oldData.tableData._id;
           dataUpdate[index] = newData;
           setData([...dataUpdate]);
+          apiCall();
           resolve();
           setIserror(false);
           setErrorMessages([]);
@@ -143,6 +149,7 @@ function Flights() {
           let dataToAdd = [...data];
           dataToAdd.push(newData);
           setData(dataToAdd);
+          apiCall();
           resolve();
           setErrorMessages([]);
           setIserror(false);
@@ -168,6 +175,7 @@ function Flights() {
         const index = oldData.tableData._id;
         dataDelete.splice(index, 1);
         setData([...dataDelete]);
+        apiCall();
         resolve();
       })
       .catch((error) => {
