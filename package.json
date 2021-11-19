@@ -14,12 +14,15 @@
     "four": "cd user-details-microservice && node app",
     "five": "cd user-microservice && node app",
     "setup:one": "cd booking-microservice && npm i",
+    "test:one": "cd flight-microservice && npm run test",
+    "test:two": "cd user-microservice && npm run test",
     "setup:two": "cd flight-booking-frontend && npm i",
     "setup:three": "cd flight-microservice && npm i",
     "setup:four": "cd user-details-microservice && npm i",
     "setup:five": "cd user-microservice && npm i",
     "start": "concurrently \"npm run one\" \"npm run two\" \"npm run three\" \"npm run four\" \"npm run five\"",
-    "setup": "concurrently \"npm run setup:one\" \"npm run setup:two\" \"npm run setup:three\" \"npm run setup:four\" \"npm run setup:five\""
+    "setup": "concurrently \"npm run setup:one\" \"npm run setup:two\" \"npm run setup:three\" \"npm run setup:four\" \"npm run setup:five\"",
+    "test": "concurrently \"npm run test:one\" \"npm run test:two\" "
   },
   "repository": {
     "type": "git",
