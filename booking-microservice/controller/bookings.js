@@ -83,7 +83,7 @@ module.exports = {
       //   receipt,
       //   payment_capture,
       // });
-      console.log(response);
+      // console.log(response);
       res.status(200).json({
         id: 'response.id',
         currency: 'response.currency',

@@ -265,7 +265,11 @@ export class Home extends Component {
                   <table style={{ width: "100%", tableLayout: "fixed" }}>
                     <tbody>
                       <tr>
-                        <td style={{ fontSize: "1.4rem" }}>{flight.from}</td>
+                        <td style={{ fontSize: "1.4rem" }}>
+                          {flight.from}
+                          <br />
+                          {new Date(flight.deptTime).toLocaleTimeString()}
+                        </td>
                         <td>
                           <span class="plane">
                             <svg
@@ -299,7 +303,11 @@ export class Home extends Component {
                             </svg>
                           </span>
                         </td>
-                        <td style={{ fontSize: "1.4rem" }}>{flight.to}</td>
+                        <td style={{ fontSize: "1.4rem" }}>
+                          {flight.to}
+                          <br />
+                          {new Date(flight.arrTime).toLocaleTimeString()}
+                        </td>
                         <td style={{ fontSize: "1.4rem" }}>
                           {/* <span style={{ float: "right" }}> */}
                           &#8377;{flight.fare}

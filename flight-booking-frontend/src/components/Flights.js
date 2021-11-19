@@ -26,6 +26,20 @@ function Flights() {
       title: "Destination",
       field: "to",
     },
+    {
+      title: "Dept Time",
+      field: "deptTime",
+      type:"time"
+    },
+    {
+      title: "Arr Time",
+      field: "arrTime",
+      type:"time"
+    },
+    {
+      title: "Destination",
+      field: "to",
+    },
     { title: "Date", field: "date", type: "date" },
 
     { title: "Fare", field: "fare", type: "numeric" },

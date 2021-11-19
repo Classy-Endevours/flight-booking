@@ -37,43 +37,44 @@ function Payments({ flight, user, userDetails, bookFlight, clearBooking }) {
     }
   }
   async function displayRazorpay() {
-    const res = await loadScript(
-      "https://checkout.razorpay.com/v1/checkout.js"
-    );
+    // const res = await loadScript(
+    //   "https://checkout.razorpay.com/v1/checkout.js"
+    // );
 
-    if (!res) {
-      alert("Razorpay SDK failed to load. Are you online?");
-      return;
-    }
-    console.log(fare);
-    const data = await api.post("/razorpay", { fare });
+    // if (!res) {
+    //   alert("Razorpay SDK failed to load. Are you online?");
+    //   return;
+    // }
+    // console.log(fare);
+    // const data = await api.post("/razorpay", { fare });
     //   .then((t) => t.json());
 
-    console.log(data.data.amount);
+    // console.log(data.data.amount);
 
-    const options = {
-      key: process.env.KEY_ID,
-      currency: data.data.currency,
-      amount: data.data.amount.toString(),
-      order_id: data.data.id,
-      name: "Flight Booking",
-      description: "Complete payment to book the flight",
-      //   image: "http://localhost:1337/logo.svg",
-      handler: async function (response) {
-        // alert(response.razorpay_payment_id);
-        // alert(response.razorpay_order_id);
-        // alert(response.razorpay_signature);
-        console.log(userDetails._id);
-        await clearBooking();
-        await bookFlight(userDetails, flight);
-        history.push("/successpage");
-      },
-      prefill: {
-        email: getEmail(),
-      },
-    };
-    const paymentObject = new window.Razorpay(options);
-    paymentObject.open();
+    // const options = {
+    //   key: process.env.KEY_ID,
+    //   currency: data.data.currency,
+    //   amount: data.data.amount.toString(),
+    //   order_id: data.data.id,
+    //   name: "Flight Booking",
+    //   description: "Complete payment to book the flight",
+    //   //   image: "http://localhost:1337/logo.svg",
+    //   handler: async function (response) {
+    //     // alert(response.razorpay_payment_id);
+    //     // alert(response.razorpay_order_id);
+    //     // alert(response.razorpay_signature);
+    //     console.log(userDetails._id);
+    //     await clearBooking();;
+    //     history.push("/successpage");
+    //   },
+    //   prefill: {
+    //     email: getEmail(),
+    //   },
+    // };
+    await bookFlight(userDetails, flight)
+    history.push("/successpage");
+    // const paymentObject = new window.Razorpay(options);
+    // paymentObject.open();
   }
   return (
     <div>

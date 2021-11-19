@@ -18,6 +18,14 @@ var flightSchema = new Schema({
     type: String,
     required: true,
   },
+  deptTime: {
+    type: String,
+    required: true,
+  },
+  arrTime:{
+    type: String,
+    required: true,
+  },
   date: {
     type: Date,
     required: true,
